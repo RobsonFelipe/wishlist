@@ -1,5 +1,9 @@
 package com.wishlist.domain.useCase;
 
+import com.wishlist.domain.entities.Wishlist;
+
+import java.util.Optional;
+
 public interface DeleteWishlistUseCase {
-    public String deleteWishlist(String wishlistId);
+    public void deleteWishlist(String wishlistId);
 }
