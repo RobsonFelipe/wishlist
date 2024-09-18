@@ -5,5 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface WishListSaveRepository extends MongoRepository<Wishlist, String> {
 
+    @Override
     Wishlist save(Wishlist wishlist);
 }

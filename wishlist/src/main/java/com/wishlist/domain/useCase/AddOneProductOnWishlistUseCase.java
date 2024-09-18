@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface AddOneProductOnWishlistUseCase {
 
-    public Optional<Wishlist> AddOneProductOnWishlist(String wishlistId, Product product);
+    public Wishlist AddOneProductOnWishlist(String wishlistId, Product product);
 }

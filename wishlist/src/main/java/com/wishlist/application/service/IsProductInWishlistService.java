@@ -3,7 +3,7 @@ package com.wishlist.application.service;
 import com.wishlist.domain.entities.Product;
 import com.wishlist.domain.entities.Wishlist;
 import com.wishlist.domain.useCase.IsProductInWishListUseCase;
-import com.wishlist.infra.adpter.persistence.WishListRepository;
+import com.wishlist.infra.adpter.persistence.WishListFindRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,15 +11,15 @@ import java.util.Optional;
 @Service
 public class IsProductInWishlistService implements IsProductInWishListUseCase {
 
-    private final WishListRepository wishListRepository;
+    private final WishListFindRepository wishListRepository;
 
-    public IsProductInWishlistService(WishListRepository wishListRepository) {
+    public IsProductInWishlistService(WishListFindRepository wishListRepository) {
         this.wishListRepository = wishListRepository;
     }
 
     @Override
-    public Optional<Boolean> IsProductInWishList(Wishlist wishlist, Product product) {
-        Optional<Wishlist> optionalWishlist = wishListRepository.findById(wishlist.getWishListId());
+    public Optional<Boolean> IsProductInWishList(String wishlistId, Product product) {
+        Optional<Wishlist> optionalWishlist = wishListRepository.findById(wishlistId);
 
         for(Product productOnList :optionalWishlist.get().getListOfProducts()){
             if (product.getProductId().equals(productOnList.getProductId())){

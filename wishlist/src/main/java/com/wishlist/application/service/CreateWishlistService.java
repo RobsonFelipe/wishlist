@@ -3,33 +3,34 @@ package com.wishlist.application.service;
 import com.wishlist.domain.entities.Product;
 import com.wishlist.domain.entities.Wishlist;
 import com.wishlist.domain.useCase.CreateWishlistUseCase;
-import com.wishlist.infra.adpter.persistence.WishListRepository;
+import com.wishlist.infra.adpter.persistence.WishListFindRepository;
+import com.wishlist.infra.adpter.persistence.WishListSaveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CreateWishlistService implements CreateWishlistUseCase {
 
-    private final WishListRepository wishListRepository;
+    private final WishListFindRepository wishListRepository;
+
+    private final WishListSaveRepository wishListSaveRepository;
 
     @Autowired
-    public CreateWishlistService(WishListRepository wishListRepository) {
+    public CreateWishlistService(WishListFindRepository wishListRepository, WishListSaveRepository wishListSaveRepository) {
         this.wishListRepository = wishListRepository;
+        this.wishListSaveRepository = wishListSaveRepository;
     }
 
     @Override
-    public Optional<Wishlist> createWishlist() {
+    public void createWishlist() {
         Wishlist newWishlist = new Wishlist();
-        return wishListRepository.save(newWishlist);
+        wishListSaveRepository.save(newWishlist);
     }
 
     @Override
-    public Optional<Wishlist> createWishlist(List<Product> list) {
-        Wishlist newWishlist = new Wishlist();
-        newWishlist.setListOfProducts(list);
-        return wishListRepository.save(newWishlist);
+    public void createWishlist(Wishlist wishlist) {
+        wishListSaveRepository.save(wishlist);
     }
 }

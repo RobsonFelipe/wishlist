@@ -6,5 +6,5 @@ import com.wishlist.domain.entities.Wishlist;
 import java.util.Optional;
 
 public interface IsProductInWishListUseCase {
-    public Optional<Boolean> IsProductInWishList(Wishlist wishlist, Product product);
+    public Optional<Boolean> IsProductInWishList(String wishlistId, Product product);
 }

@@ -1,20 +1,17 @@
 package com.wishlist.application.service;
 
-import com.wishlist.domain.entities.Wishlist;
 import com.wishlist.domain.useCase.DeleteWishlistUseCase;
-import com.wishlist.infra.adpter.persistence.WishListRepository;
+import com.wishlist.infra.adpter.persistence.WishListDeleteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class DeleteWishListService implements DeleteWishlistUseCase {
 
-    private final WishListRepository wishListRepository;
+    private final WishListDeleteRepository wishListRepository;
 
     @Autowired
-    public DeleteWishListService(WishListRepository wishListRepository) {
+    public DeleteWishListService(WishListDeleteRepository wishListRepository) {
         this.wishListRepository = wishListRepository;
     }
 
