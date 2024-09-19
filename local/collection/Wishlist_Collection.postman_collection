@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "48865ce6-11a5-4561-a309-1a364e74022f",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5656108"
+	},
+	"item": [
+		{
+			"name": "Add product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"wishlistId\": \"1\",\r\n    \"product\":\r\n        {\r\n            \"productId\": \"produto 1\",\r\n            \"name\": \"produto\"\r\n        }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/add/oneProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"add",
+						"oneProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Empty",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/new/createEmpty",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"new",
+						"createEmpty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create wishlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"wishListId\": \"66eb5054683503581f8032\",\r\n    \"listOfProducts\": [\r\n        {\r\n            \"productId\": \"produto 1\",\r\n            \"name\": \"produto\"\r\n        },\r\n        {\r\n            \"productId\": \"produto 2\",\r\n            \"name\": \"produtoss\"\r\n        },\r\n        {\r\n            \"productId\": \"produto 2\",\r\n            \"name\": \"produtoss\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/new/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"new",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/delete/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete wishlist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"wishlistId\" :\"66eb5054683503581f8032\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/delete/wishlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "produto esta na wishlist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"wishlistId\": \"66eb5054683503581f8032\",\r\n    \"product\":\r\n        {\r\n            \"productId\": \"produto 1\",\r\n            \"name\": \"produto\"\r\n        }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/isPresent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"isPresent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar wishlist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"wishlistId\" :\"66eb5054683503581f803218\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/wishlist/allProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wishlist",
+						"allProduct"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
