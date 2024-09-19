@@ -1,0 +1,36 @@
+Sistema de WishList
+
+case 1 :  wishlist criada
+		Given: Usuario solicita a criação da wishlist sem itens
+		When : Usuario cria uma wishlist
+		Then:  retorna o identificador da wishlist
+
+case 2 :  wishlist criada
+		Given: Usuario solicita a criação da wishlist
+		When : o usuario cria uma wishlist e adiciona alguns produtos
+		Then:  retorna a wishlist criada com os produtos
+		
+case  3 : wishlist criada mais de 20 itens
+		Given: Usuario solicita a criação da wishlist
+		When : quantidade de produto informado mais que 20 itens
+		Then: 	wishlist criada com os primeiro 20 itens e retorna uma mensagem "A wishlist so pode ter 20 itens"
+		
+case 4 : Consulta da wishlist
+		Given:  wishlist ja tenha sido criada
+		When :  usuario informa o numero da wishlist
+		Then:  aplicação retorna a wishlist com os produtos associados
+		
+case 5 :  retirada de um item da lista
+		Given:  produto ja tenha sido adicionado na lista
+		When :  usuario informa o numero da wishlist e um produto
+		Then:  retorna a wishlist sem o produto informado
+
+case 6 : 
+		Given: wishlist ja tenha sido previamente criada
+		When : usuario informa o numero de um wishlist
+		Then: aplicação retorna uma mensagem da conclusao
+		
+case  7: validar se produto esta na wishlist
+		Given: o numero de uma wishlist ja criada
+		When : usuario informa o numero da wishlist e um produto
+		Then: aplicação retorna se o produto estou ou nao na wishlist
