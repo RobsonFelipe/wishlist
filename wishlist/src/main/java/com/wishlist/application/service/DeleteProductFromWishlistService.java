@@ -8,6 +8,8 @@ import com.wishlist.infra.adpter.persistence.WishListFindRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,13 +25,19 @@ public class DeleteProductFromWishlistService implements DeleteProductFromWishLi
     @Override
     public Optional<Wishlist> deleteProduct(String wishlistId, Product product) {
         Optional<Wishlist> wishlist = wishListRepository.findById(wishlistId);
-        Wishlist newWishlist = new Wishlist();
-        newWishlist.setWishListId(wishlistId);
-        for(Product productOnList :wishlist.get().getListOfProducts()){
-            if (!product.getProductId().equals(productOnList.getProductId())){
-                newWishlist.getListOfProducts().add(productOnList);
+        wishlist.get().setListOfProducts(findAndDeleteTheProduct(wishlist.get(),product));
+        Wishlist w = wishListRepository.save(wishlist.get());
+        Optional<Wishlist> ret = Optional.of(w);
+        return ret;
+    }
+
+    public List<Product> findAndDeleteTheProduct(Wishlist wishlist,Product productToRemove){
+        List<Product> ret = new ArrayList<>();
+        for(Product productOnList :wishlist.getListOfProducts()){
+            if (!productToRemove.getProductId().equals(productOnList.getProductId())){
+                ret.add(productOnList);
             }
         }
-        return Optional.of(wishListRepository.save(newWishlist));
+        return ret;
     }
 }

@@ -28,7 +28,7 @@ public class AddOneProductOnWishListService implements AddOneProductOnWishlistUs
                 wishlist.get().getListOfProducts().size()<= 19){
             wishlist.get().listOfProducts.add(product);
             return wishListRepository.save(wishlist.get());
-        } throw new InternalError("Lista de desejo ja atingiu seu limite.");
+        } throw new IllegalArgumentException("Lista de desejo ja atingiu seu limite.");
 
     }
 }

@@ -4,6 +4,7 @@ import com.wishlist.application.dto.UpdateControllerDTO;
 import com.wishlist.application.service.CreateWishlistService;
 import com.wishlist.application.service.IsProductInWishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class IsProductOnWishlistController {
     private IsProductInWishlistService service;
 
     @GetMapping("/isPresent")
-    public String isProductInWishlist(@RequestBody UpdateControllerDTO request){
+    public String isProductInWishlist(@NonNull @RequestBody UpdateControllerDTO request){
         Optional<Boolean> isPresent = service.IsProductInWishList(request.wishlistId(), request.product());
         if (isPresent.get().booleanValue() == false){
             return "Produto não consta na wishlist.";

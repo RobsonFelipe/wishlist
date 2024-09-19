@@ -32,23 +32,10 @@ public class CreateWishlistService implements CreateWishlistUseCase {
 
     @Override
     public Wishlist createWishlist(Wishlist wishlist) {
-        wishlist.setListOfProducts( validateSizeOfListOfProducts(wishlist));
-        return wishListSaveRepository.save(wishlist);
-    }
+        if (wishlist.getListOfProducts() == null ||
+                wishlist.getListOfProducts().size() <=20){
+            return wishListSaveRepository.save(wishlist);
+        } throw new IllegalArgumentException("A Wishlist pode conter apenas 20 itens.");
 
-    public List<Product> validateSizeOfListOfProducts(Wishlist wishlist){
-        List<Product> ret = new ArrayList<>();
-        if(wishlist.getListOfProducts().size() < 20){
-            int count = 0;
-            for (Product product: wishlist.getListOfProducts()){
-                if (count <= 19){
-                    ret.add(product);
-                    count++;
-                }else{
-                    break;
-                }
-            }
-        }
-        return ret;
     }
 }

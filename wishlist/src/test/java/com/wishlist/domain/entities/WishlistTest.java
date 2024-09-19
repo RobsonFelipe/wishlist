@@ -40,7 +40,7 @@ class WishlistTest {
         Wishlist wishListId = new Wishlist();
 
         Assertions.assertNull(wishListId.getWishListId());
-        Assertions.assertNull(wishListId.getListOfProducts());
+        Assertions.assertNotNull(wishListId.getListOfProducts());
 
     }
 

@@ -19,10 +19,15 @@ public class WishListExceptionHandler extends RuntimeException{
         return ResponseEntity.internalServerError().body(exceptionDTO);
     }
 
-//    @ExceptionHandler(Exception.class)
-//    public ResponseEntity threatGenericError(Exception ex){
-//        ExceptionDTO exceptionDTO = new ExceptionDTO("Erro interno da aplicação", "500");
-//        return ResponseEntity.internalServerError().body(exceptionDTO);
-//    }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity threatGenericError(Exception ex){
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Erro interno da aplicação", "500");
+        return ResponseEntity.internalServerError().body(exceptionDTO);
+    }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity threatWishlistFull(IllegalArgumentException ex){
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Wishlist ja possui 20 itens.", "400");
+        return ResponseEntity.badRequest().body(exceptionDTO);
+    }
 }

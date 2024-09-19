@@ -4,6 +4,7 @@ import com.wishlist.application.dto.WishlistDTO;
 import com.wishlist.application.service.CreateWishlistService;
 import com.wishlist.domain.entities.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class CreateWishlistController {
     }
 
     @PostMapping("/create")
-    public Wishlist createWishlist(@RequestBody WishlistDTO wishlist){
+    public Wishlist createWishlist(@NonNull @RequestBody WishlistDTO wishlist){
        return createWishlistService.createWishlist(new Wishlist(wishlist.wishlistId(),wishlist.listOfProducts()));
     }
 }
