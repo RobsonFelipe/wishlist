@@ -1,7 +1,9 @@
 package com.wishlist.controllers;
 
 
+import com.wishlist.application.dto.WishlistIdDTO;
 import com.wishlist.application.service.ObtainAllProductsFromWishlistService;
+import com.wishlist.domain.Exception.WishListExceptionHandler;
 import com.wishlist.domain.entities.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +21,9 @@ public class ObtainAllProductController {
     private ObtainAllProductsFromWishlistService service;
 
     @GetMapping("/allProduct")
-    public Wishlist obtainAllProducts(@RequestBody String wishlistId){
-        Optional<Wishlist> ret = service.ObtainAllProductsFromWishlist(wishlistId);
-        if (!ret.isEmpty()){
-            return ret.get();
-        } throw new NullPointerException("Wishlist informada não existe");
+    public Wishlist obtainAllProducts(@RequestBody WishlistIdDTO wishlistIdDTO){
+        Optional<Wishlist> ret = service.ObtainAllProductsFromWishlist(wishlistIdDTO.wishlistId());
 
+        return ret.get();
     }
 }

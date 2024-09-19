@@ -4,6 +4,7 @@ import com.wishlist.application.service.DeleteWishListService;
 import com.wishlist.domain.entities.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,7 @@ public class DeleteWishListController {
     private DeleteWishListService service;
 
     @DeleteMapping("/wishlist")
-    public String deleteWishList(String wishlistId){
+    public String deleteWishList(@RequestBody String wishlistId){
         service.deleteWishlist(wishlistId);
         return "Wishlist apagada com sucesso.";
     }

@@ -1,5 +1,6 @@
 package com.wishlist.controllers;
 
+import com.wishlist.application.dto.WishlistDTO;
 import com.wishlist.application.service.CreateWishlistService;
 import com.wishlist.domain.entities.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ public class CreateWishlistController {
     private CreateWishlistService createWishlistService;
 
     @PostMapping("/createEmpty")
-    public void createWishlistVazia(){
-        createWishlistService.createWishlist();
+    public Wishlist createWishlistVazia(){
+        return createWishlistService.createWishlist();
     }
 
     @PostMapping("/create")
-    public void createWishlist(@RequestBody Wishlist wishlist){
-        createWishlistService.createWishlist(wishlist);
+    public Wishlist createWishlist(@RequestBody WishlistDTO wishlist){
+       return createWishlistService.createWishlist(new Wishlist(wishlist.wishlistId(),wishlist.listOfProducts()));
     }
 }

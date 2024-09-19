@@ -22,8 +22,11 @@ public class AddOneProductOnWishListService implements AddOneProductOnWishlistUs
     @Override
     public Wishlist AddOneProductOnWishlist(String wishlistId, Product product) {
         Optional<Wishlist> wishlist = wishListRepository.findById(wishlistId);
-        if(wishlist.get().getListOfProducts().size()<= 19){
-            wishlist.get().getListOfProducts().add(product);
+        if (!wishlist.isPresent()) wishlist = Optional.of(new Wishlist());
+
+        if(wishlist.get().getListOfProducts() == null ||
+                wishlist.get().getListOfProducts().size()<= 19){
+            wishlist.get().listOfProducts.add(product);
             return wishListRepository.save(wishlist.get());
         } throw new InternalError("Lista de desejo ja atingiu seu limite.");
 

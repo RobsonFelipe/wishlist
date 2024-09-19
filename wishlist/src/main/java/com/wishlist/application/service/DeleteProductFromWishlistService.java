@@ -1,5 +1,6 @@
 package com.wishlist.application.service;
 
+import com.wishlist.domain.Exception.WishListExceptionHandler;
 import com.wishlist.domain.entities.Product;
 import com.wishlist.domain.entities.Wishlist;
 import com.wishlist.domain.useCase.DeleteProductFromWishListUseCase;
@@ -29,7 +30,6 @@ public class DeleteProductFromWishlistService implements DeleteProductFromWishLi
                 newWishlist.getListOfProducts().add(productOnList);
             }
         }
-        wishListRepository.save(newWishlist);
-        return Optional.of(newWishlist);
+        return Optional.of(wishListRepository.save(newWishlist));
     }
 }

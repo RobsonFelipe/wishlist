@@ -25,20 +25,20 @@ public class CreateWishlistService implements CreateWishlistUseCase {
     }
 
     @Override
-    public void createWishlist() {
+    public Wishlist createWishlist() {
         Wishlist newWishlist = new Wishlist();
-        wishListSaveRepository.save(newWishlist);
+        return wishListSaveRepository.save(newWishlist);
     }
 
     @Override
-    public void createWishlist(Wishlist wishlist) {
+    public Wishlist createWishlist(Wishlist wishlist) {
         wishlist.setListOfProducts( validateSizeOfListOfProducts(wishlist));
-        wishListSaveRepository.save(wishlist);
+        return wishListSaveRepository.save(wishlist);
     }
 
     public List<Product> validateSizeOfListOfProducts(Wishlist wishlist){
         List<Product> ret = new ArrayList<>();
-        if(wishlist.getListOfProducts().size() > 20){
+        if(wishlist.getListOfProducts().size() < 20){
             int count = 0;
             for (Product product: wishlist.getListOfProducts()){
                 if (count <= 19){

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface CreateWishlistUseCase {
 
-    public void createWishlist();
+    public Wishlist createWishlist();
 
-    public void createWishlist(Wishlist wishlist);
+    public Wishlist createWishlist(Wishlist wishlist);
 }
