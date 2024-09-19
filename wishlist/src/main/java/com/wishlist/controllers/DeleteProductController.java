@@ -2,7 +2,6 @@ package com.wishlist.controllers;
 
 import com.wishlist.application.dto.UpdateControllerDTO;
 import com.wishlist.application.service.DeleteProductFromWishlistService;
-import com.wishlist.domain.Exception.WishListExceptionHandler;
 import com.wishlist.domain.entities.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

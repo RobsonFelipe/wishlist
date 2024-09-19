@@ -1,7 +1,6 @@
 package com.wishlist.controllers;
 
 import com.wishlist.application.dto.UpdateControllerDTO;
-import com.wishlist.application.service.CreateWishlistService;
 import com.wishlist.application.service.IsProductInWishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;

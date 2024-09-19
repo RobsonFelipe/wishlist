@@ -1,15 +1,11 @@
 package com.wishlist.application.service;
 
-import com.wishlist.domain.entities.Product;
 import com.wishlist.domain.entities.Wishlist;
 import com.wishlist.domain.useCase.CreateWishlistUseCase;
 import com.wishlist.infra.adpter.persistence.WishListFindRepository;
 import com.wishlist.infra.adpter.persistence.WishListSaveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class CreateWishlistService implements CreateWishlistUseCase {

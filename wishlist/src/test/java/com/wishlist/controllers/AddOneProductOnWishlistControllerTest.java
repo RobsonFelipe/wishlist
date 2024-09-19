@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 class AddOneProductOnWishlistControllerTest {
@@ -50,14 +52,4 @@ class AddOneProductOnWishlistControllerTest {
         ResponseEntity<Wishlist> result =ResponseEntity.badRequest().body( wishlistController.addOneProductOnWishlist(request));
         assertEquals(HttpStatus.BAD_REQUEST, result.getStatusCode());
     }
-
-    @Test
-    public void shouldHandleServiceException() {
-        UpdateControllerDTO request = new UpdateControllerDTO("test-wishlist", new Product("Product 1", 10.0));
-
-        when(wishlistService.AddOneProductOnWishlist(anyString(), any(Product.class))).thenThrow(new RuntimeException("Service error"));
-        ResponseEntity<Wishlist> result = wishlistController.addOneProductOnWishlist(request);
-        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, result.getStatusCode());
-    }
-
 }

@@ -3,7 +3,6 @@ package com.wishlist.controllers;
 
 import com.wishlist.application.dto.WishlistIdDTO;
 import com.wishlist.application.service.ObtainAllProductsFromWishlistService;
-import com.wishlist.domain.Exception.WishListExceptionHandler;
 import com.wishlist.domain.entities.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;

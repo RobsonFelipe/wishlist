@@ -1,6 +1,5 @@
 package com.wishlist.application.service;
 
-import com.wishlist.domain.Exception.WishListExceptionHandler;
 import com.wishlist.domain.entities.Product;
 import com.wishlist.domain.entities.Wishlist;
 import com.wishlist.domain.useCase.DeleteProductFromWishListUseCase;
