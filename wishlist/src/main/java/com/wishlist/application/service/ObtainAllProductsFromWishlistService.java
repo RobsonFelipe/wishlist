@@ -20,7 +20,7 @@ public class ObtainAllProductsFromWishlistService implements ObtainAllProductsFr
 
     @Override
     public Optional<Wishlist> ObtainAllProductsFromWishlist(String wishlistId) {
-
-        return wishListRepository.findById(wishlistId);
+        Optional<Wishlist> wishlist = wishListRepository.findById(wishlistId);
+        return wishlist;
     }
 }
